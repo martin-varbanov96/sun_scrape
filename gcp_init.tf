@@ -1,19 +1,19 @@
 provider "google" {
   version = "3.84.0"
 
-  credentials = file("scrape-327418-4195e86a62d2.json")
+  credentials = file("/home/martin/Documents/certificates/gcp/static-emblem-327016-ce88b7e70600.json")
 
   project = var.project_id
-  region  = "europe-central2"
-  zone    = "europe-central2-a"
+  region  = "europe-west2"
+  zone    = "europe-west2-a"
 }
 
 provider "google-beta" {
-  version = ">= 3.62"
-  credentials = file("scrape-327418-4195e86a62d2.json")
+  version = ">= 3.87"
+  credentials = file("/home/martin/Documents/certificates/gcp/static-emblem-327016-ce88b7e70600.json")
   project = var.project_id
-  region  = "europe-central2"
-  zone    = "europe-central2-a"
+  region  = "europe-west2"
+  zone    = "europe-west2-a"
 }
 
 # creating a bucket object
@@ -53,16 +53,22 @@ resource "google_bigquery_table" "bq_table_resource" {
   schema = <<EOF
 [
   {
-    "name": "permalink",
+    "name": "title",
     "type": "STRING",
     "mode": "NULLABLE",
-    "description": "The Permalink"
+    "description": "title of the article"
   },
   {
-    "name": "state",
+    "name": "section",
     "type": "STRING",
     "mode": "NULLABLE",
-    "description": "State where the head office is located"
+    "description": "type of news category"
+  },
+  {
+    "name": "article_link",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "link to article"
   }
 ]
 EOF
@@ -72,18 +78,18 @@ EOF
     deletion_protection = false
 }
 
-# creating a vpc network
-resource "google_compute_network" "vpc_network" {
-  project                 = "scrape-327418"
-  name                    = "sun-scrape-vpc-network"
-  auto_create_subnetworks = true
-  mtu                     = 1460
-}
+# # creating a vpc network
+# resource "google_compute_network" "vpc_network" {
+#   project                 = "scrape-327418"
+#   name                    = "sun-scrape-vpc-network"
+#   auto_create_subnetworks = true
+#   mtu                     = 1460
+# }
 
-resource "google_project_service" "vpcaccess-api" {
-  project = var.project_id
-  service = "vpcaccess.googleapis.com"
-}
+# resource "google_project_service" "vpcaccess-api" {
+#   project = var.project_id
+#   service = "vpcaccess.googleapis.com"
+# }
 
 
 module "sun_vpc_connector" {

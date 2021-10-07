@@ -4,8 +4,8 @@
 #   credentials = file("/home/martin/Documents/certificates/gcp/scrape-327418-5be6e7d177e2.json")
 
 #   project = "scrape-327418"
-#   region  = "europe-central2"
-#   zone    = "europe-central2-a"
+#   region  = "europe-west2"
+#   zone    = "europe-west2-a"
 # }
 
 # resource "google_bigquery_dataset" "default" {

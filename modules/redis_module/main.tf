@@ -20,8 +20,8 @@ resource "google_redis_instance" "redis_instance"{
   tier           = "STANDARD_HA"
   memory_size_gb = 1
 
-  location_id             = "europe-central2-a"
-  alternative_location_id = "europe-central2-b"
+  location_id             = "europe-west2-a"
+  alternative_location_id = "europe-west2-b"
 
 # │ Error: Reference to undeclared resource
 # TODO: uncomment and fix this issue:
