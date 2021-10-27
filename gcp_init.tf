@@ -100,3 +100,15 @@ module "sun_vpc_connector" {
 module "redis_module"  {
   source = "./modules/redis_module"
 }
+
+# pubsub_topic module
+module "pubsub_topic" {
+  source = "./modules/pubsub_topic"
+  # project_id = var.project_id
+}
+
+# bucket and cloud function
+module "cloud_function_scrape" {
+  source = "./modules/cloud_function_scrape"
+  project_id = var.project_id
+}

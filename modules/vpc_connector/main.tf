@@ -99,6 +99,7 @@ module "serverless-connector" {
     machine_type  = "f1-micro"
     min_instances = 2
     max_instances = 7
+    max_throughput = 300
     }
     # Uncomment to specify an ip_cidr_range
     #   , {
@@ -117,3 +118,19 @@ module "serverless-connector" {
 }
 
 
+
+# TODO:
+#   # module.sun_vpc_connector.module.serverless-connector.google_vpc_access_connector.connector_beta["central-serverless"] must be replaced
+# -/+ resource "google_vpc_access_connector" "connector_beta" {
+#       ~ id             = "projects/static-emblem-327016/locations/europe-west2/connectors/central-serverless" -> (known after apply)
+#       ~ max_throughput = 700 -> 300 # forces replacement
+#         name           = "central-serverless"
+#       ~ self_link      = "projects/static-emblem-327016/locations/europe-west2/connectors/central-serverless" -> (known after apply)
+#       ~ state          = "READY" -> (known after apply)
+#         # (6 unchanged attributes hidden)
+
+#       ~ subnet {
+#             name       = "serverless-subnet"
+#           ~ project_id = "static-emblem-327016" -> (known after apply)
+#         }
+#     }
