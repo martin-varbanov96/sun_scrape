@@ -1,0 +1,10 @@
+bigquery-schema-generator
+google
+google-api-core
+google-auth
+google-cloud-bigquery
+google-cloud-core
+google-crc32c
+google-resumable-media
+googleapis-common-protos
+

@@ -99,7 +99,7 @@ module "serverless-connector" {
     machine_type  = "f1-micro"
     min_instances = 2
     max_instances = 7
-    max_throughput = 300
+    max_throughput = 700
     }
     # Uncomment to specify an ip_cidr_range
     #   , {

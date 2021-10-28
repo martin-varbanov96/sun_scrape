@@ -53,6 +53,12 @@ resource "google_bigquery_table" "bq_table_resource" {
   schema = <<EOF
 [
   {
+    "name": "read_count",
+    "type": "INT64",
+    "mode": "NULLABLE",
+    "description": "Number of times the article has been read"
+  },
+  {
     "name": "title",
     "type": "STRING",
     "mode": "NULLABLE",

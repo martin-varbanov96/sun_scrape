@@ -38,6 +38,22 @@ ERROR: (gcloud.iam.roles.create) INVALID_ARGUMENT: The number of permissions in 
 
 Should the terraform config be destroyable? I try to run the `terrafrom destroy` every now and then to check the stability of the config. Is this a procedure which is done in production?
 
+### Cloud functions:
+I can initially deploy the function by zipping a python script and attaching it in a bucket. But if I do a change in the Python file, the cloud function will not be properly versioned, I do versioning directly from the console. What is the WoW for updating cloud functions?
+
+### Other
+
+These full paths are not okay, maybe it's a better approach to have an env variable containing the root of the project ? What if there are a number of projects ?
+
+```source = "/home/martin/Documents/github/sun_scrape/bq_manager/insert_bq.zip"```
+
+
+____
+
+Can service account tasks be managed with terraform, for instanace for creating roles etc. ?
+
+Can we run bash scripts(imperative stuff) in this declarative terraform env ?
+
 
 
 ## Known issues
